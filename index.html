@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tanya Thomas — Journalist and Researcher</title>
+<meta name="description" content="News reporting and podcasts on sustainability, clean energy, infrastructure and corporate finance.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,700&family=Literata:opsz,wght@7..72,400&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f4f6f8;--card:#fff;--ink:#16202b;--muted:#5d6b7a;--rule:#d9e0e7;--accent:#0f766e;--ph:#e3e9ee;
+--head:"Bricolage Grotesque","Helvetica Neue",Arial,sans-serif;--body:"Literata",Georgia,serif}
+@media (prefers-color-scheme:dark){:root{--bg:#0f161d;--card:#18222c;--ink:#e8eef4;--muted:#9fb0c0;--rule:#2a3846;--accent:#5eead4;--ph:#223140}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 1rem/1.6 var(--head)}
+a{color:inherit}
+a:focus-visible,button:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
+.wrap{max-width:1180px;margin:0 auto;padding:3rem 1.5rem 4rem}
+header{display:flex;gap:2rem;align-items:center;padding-bottom:2rem;border-bottom:1px solid var(--rule)}
+.avatar{width:150px;height:150px;border-radius:50%;object-fit:cover;flex:none;background:var(--ph)}
+h1{font:700 clamp(2.3rem,5vw,3.4rem)/1 var(--head);letter-spacing:-.03em;margin:0 0 .5rem}
+.loc{margin:0 0 .25rem;color:var(--muted)}
+.role{font-weight:500;margin:.75rem 0 .25rem;color:var(--accent)}
+.bio{margin:0;max-width:60ch}
+.links{display:flex;gap:1.25rem;margin:.75rem 0 0;padding:0;list-style:none;font-weight:500}
+.links a{text-underline-offset:4px}
+.links a:hover{color:var(--accent)}
+.bar{display:flex;flex-wrap:wrap;gap:.5rem;align-items:center;margin:1.75rem 0 .5rem}
+.bar button{font:500 .9rem var(--head);background:none;color:var(--ink);border:1px solid var(--rule);border-radius:999px;padding:.3rem .85rem;cursor:pointer}
+.bar button:hover{border-color:var(--accent)}
+.bar button[aria-pressed="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.count{color:var(--muted);margin:1.75rem 0 .75rem}
+#views{margin:0 0 1.25rem}
+.cols{display:flex;gap:1.25rem;align-items:flex-start}
+.col{flex:1;min-width:0;display:flex;flex-direction:column;gap:1.25rem}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:1.25rem}
+.grid .card{display:flex;flex-direction:column}
+.grid .in{flex:1}
+.grid .blurb{display:-webkit-box;-webkit-line-clamp:5;-webkit-box-orient:vertical;overflow:hidden}
+.card{display:block;background:var(--card);border:1px solid var(--rule);border-radius:6px;overflow:hidden;text-decoration:none}
+.card:hover{border-color:var(--accent)}
+.thumb{aspect-ratio:3/2;background:var(--ph);overflow:hidden}
+.thumb img{display:block;width:100%;height:100%;object-fit:cover;object-position:top}
+.in{padding:1rem 1.15rem 1.25rem}
+.view{display:block;text-align:right;color:var(--accent);font-weight:500;font-size:.95rem}
+.client{font:700 .72rem/1 var(--head);letter-spacing:.14em;text-transform:uppercase;margin:.35rem 0 .6rem}
+.card h2{font:700 1.2rem/1.25 var(--head);letter-spacing:-.01em;margin:0 0 .5rem}
+.card:hover h2{color:var(--accent)}
+.blurb{font:400 .92rem/1.55 var(--body);margin:0 0 .6rem}
+.date{font-size:.85rem;color:var(--muted);margin:0}
+@media (max-width:640px){header{flex-direction:column;align-items:flex-start}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <img class="avatar" src="images/profile.jpg" alt="Tanya Thomas">
+    <div>
+      <h1>Tanya Thomas</h1>
+      <p class="loc">New Delhi, India</p>
+      <p class="role">Journalist/Researcher</p>
+      <p class="bio">News reporting &amp; podcasts on sustainability, clean energy, infrastructure and corporate finance.</p>
+      <ul class="links">
+        <li><a href="https://www.linkedin.com/in/tanya-thomas-62773192/">LinkedIn</a></li>
+        <li><a href="https://twitter.com/tanyakondody">Twitter</a></li>
+      </ul>
+    </div>
+  </header>
+  <p class="count" id="count" aria-live="polite"></p>
+  <div class="bar" id="views" role="group" aria-label="Layout"></div>
+  <main class="grid" id="cols"></main>
+</div>
+
+<script>
+/* ============== EDIT YOUR WORK HERE ==============
+   id:     short name with no spaces. The picture is images/<id>.jpg (run get_images.py to download them).
+   date:   "2024-05-13", "2024-05" or "2024". Newest first, except pieces with a pin.
+   pin:    optional. pin:1 shows first, pin:2 second. Lines marked CHECK have an estimated date.
+   ================================================== */
+const pieces = [
+{id:"ifc-banking",pin:1,client:"IFC.ORG",title:"Women’s Advancement in Banking in Emerging South Asian Countries",date:"2024-05-08",url:"https://www.ifc.org/en/insights-reports/2024/women-s-advancement-in-banking-in-emerging-south-asian-countries",blurb:"Globally, commercial banks with more women in leadership roles report better risk management practices and higher profits than banks that don’t. Yet, the opportunities for career progression are heavily skewed against women in these institutions. I edited this data-driven study by IFC on the challenges women face in progressing to leadership roles at 20 banks in Bangladesh, Nepal, and Sri Lanka."},
+{id:"cenfa-energy-finance",pin:2,client:"CENFA.ORG",title:"The State of Energy Finance in India",date:"2021",url:"https://cenfa.org/the-state-of-energy-finance-in-india/",blurb:"My 2021 whitepaper for the Centre for Financial Accountability (a New Delhi-based think tank) is a critical study looking at India’s energy systems and issues surrounding it today. Based on facts and current trends, it offers not only the way ahead but also seeks answers to uncomfortable questions not being asked around the sudden renewables growth."},
+{id:"ifc-network-effects",client:"IFC.ORG",title:"The Network Effects of Women in Green Infrastructure",date:"2024-05-13",url:"https://www.ifc.org/en/podcasts/green-and-equal-south-asia/network-effects-of-women-in-green-infrastructure",blurb:"In the Maldives, an archipelago of over 1000 islands, the ocean is part of the everyday landscape and at the heart of everything you do. In this episode, we chat with senior team members of Dhiraagu, the country’s leading telecom company, who are ensuring that women are a valuable part of the work they do in spreading network connectivity across this island nation."},
+{id:"ifc-ev-mobility",client:"IFC.ORG",title:"How Women Drive Change in Indian Electric Mobility",date:"2024",url:"https://www.ifc.org/en/podcasts/green-and-equal-south-asia/how-women-drive-change-in-indian-electric-mobility",blurb:"This is the Green and Equal South Asia Podcast powered by ACSIIS, a partnership between the European Union and the International Finance Corporation."}, // CHECK date
+{id:"carboncopy-ev-race",client:"CARBONCOPY.INFO",title:"EV race: The battle for dominance looks set to intensify as start-ups sniff new territory",date:"2022",url:"https://carboncopy.info/ev-race-the-battle-for-dominance-looks-set-to-intensify-as-start-ups-sniff-new-territory/",blurb:"After successfully shaking up the two-wheeler market and catching established brands by surprise, new entrants in the automobile space are keen to pull off a repeat in four-wheelers. In August last year, two mobility start-ups announced within a week of each other that they plan to manufacture and on-road their debut electric car models within the next couple of years."}, // CHECK date
+{id:"carboncopy-ev-ready",client:"CARBONCOPY.INFO",title:"What India needs to be EV-ready by 2030",date:"2022",url:"https://carboncopy.info/what-india-needs-to-be-ev-ready-by-2030/",blurb:"In the absence of a single clear policy on electric mobility, the Union government’s Faster Adoption and Manufacturing of Hybrid and Electric Vehicles (FAME) II project, with its generous subsidies, plays the role of a flagship scheme, slowly nudging buyers towards EVs."}, // CHECK date
+{id:"clew-net-zero",client:"CLEANENERGYWIRE.ORG",title:"India’s policy and funding vacuum makes corporate net zero targets unviable",date:"2022-12-21",url:"https://www.cleanenergywire.org/news/indias-policy-and-funding-vacuum-makes-corporate-net-zero-targets-unviable",blurb:"The uptake of net zero targets among India’s industrial giants is unlikely to translate into rapid emissions reductions given a lack of adequate policies, funding and regulatory oversight. On the contrary, the country’s steelmakers are eyeing an expansion of coal-intensive production methods, regardless of their climate pledges."},
+{id:"promarket-rajan",client:"PROMARKET.ORG",title:"How Should Developing Countries Deal With Inflation? A Q&A With Raghuram Rajan",date:"2022-06-09",url:"https://www.promarket.org/2022/06/09/how-should-developing-countries-deal-with-inflation-a-qa-with-raghuram-rajan/",blurb:"Former central banker Raghuram Rajan speaks to ProMarket about how sources and remedies for inflation differ from the US in developing countries such as India and Brazil. He also suggests governmental reforms for business growth, unemployment, and international sanctions."},
+{id:"mint-mullaperiyar",client:"LIVEMINT.COM",title:"Mullaperiyar: Dam’ned’ & divided",date:"2022-04-20",url:"https://www.livemint.com/politics/news/mullaperiyar-dam-ned-divided-11650473072280.html",blurb:"Kerala is convinced the 126-year-old dam presents a threat if it bursts; Tamil Nadu claims this is a fallacy. Changing weather patterns may alter this dynamic."},
+{id:"sme-carbon-trading",client:"SMEMENTOR",title:"As India designs its carbon trading market, here are pitfalls it must avoid",date:"2022",url:"https://www.moneycontrol.com/news/business/as-india-designs-its-carbon-trading-market-here-are-pitfalls-it-must-avoid-9095901.html",blurb:"Big corporations must not find it cheaper to buy their way out of regulations rather than upgrade their factories with emissions-reducing technologies. But a steep carbon price will put smaller firms out of business."}, // CHECK date
+{id:"sme-tata-steel",client:"SMEMENTOR",title:"Man of steel: Here’s how TV Narendran turned Tata Steel around",date:"2022",url:"https://www.moneycontrol.com/news/business/man-of-steel-heres-how-tv-narendran-turned-tata-steel-around-8178261.html",blurb:"The Tata Steel MD took over when the company was in danger of sinking. Today, he has taken it past the group’s reigning cash cow, Tata Consultancy Services."}, // CHECK date
+{id:"mint-decarbonize-transport",client:"LIVEMINT.COM",title:"Inside India’s quest to decarbonize transport",date:"2022-02-02",url:"https://www.livemint.com/politics/policy/inside-india-s-quest-to-decarbonize-transport-11643818991243.html",blurb:"With low rates of private ownership of motorized vehicles, over 90% of Indians rely on state-run vehicles, private vehicles with carriage permits, and shared mobility to commute. If the government intends to meet its net zero targets for 2070, it needs to get the public on an electric vehicle really quickly."},
+{id:"life-of-science",client:"THELIFEOFSCIENCE.COM",title:"“I regret the years spent in academia”: a Bahujan scientist tells his story",date:"2021-12-10",url:"https://thelifeofscience.com/2021/12/10/i-regret-the-years-spent-in-academia/",blurb:"News about Deepa Mohanan and Kripashankar Gautam prompted a journalist to revisit her decade-old interview with an IIT research scholar negotiating casteism on campus. Why has nothing changed since then, and what is the way forward?"},
+{id:"mint-lt",client:"LIVEMINT.COM",title:"The tectonic shift unfolding at Larsen & Toubro",date:"2021-11-28",url:"https://www.livemint.com/companies/news/lts-great-swing-from-infra-to-tech-11638118561681.html",blurb:"With close to a century of engineering and construction work under its belt, Indians are used to seeing L&T’s logo plastered across everything from road barricades to precision engineered components for the space programme. Now, with its IT subsidiaries accounting for a large chunk of its margin profile, L&T’s future will look very different from its past."},
+{id:"mint-asset-monetization",client:"LIVEMINT.COM",title:"Decoding India’s asset monetization gambit",date:"2021-09-28",url:"https://www.livemint.com/politics/policy/inside-india-s-asset-monetization-gambit-11632844332931.html",blurb:"A report on the many difficulties Union finance minister Nirmala Sitharaman will face as she invites the private sector to navigate a complex landscape mired with built-in contradictions of competition, authority and tacit government control as part of the NMP."},
+{id:"sme-waste-to-energy",client:"SMEMENTOR",title:"As cities buckle under urban waste, waste-to-energy plants make a comeback",date:"2021",url:"https://www.moneycontrol.com/news/india/as-cities-buckle-under-urban-waste-waste-to-energy-plants-make-a-comeback-7979041.html",blurb:"WtE plants have so far had a chequered history in India, treating small amounts of waste to generate minuscule, but very expensive, units of energy."}, // CHECK date
+{id:"hindu-rooftop-solar",client:"THE HINDU",title:"Casting shadows: Tamil Nadu’s restrictive policies hinder growth of rooftop solar",date:"2021",url:"https://www.thehindubusinessline.com/news/casting-shadows-tamil-nadus-restrictive-policies-hinder-growth-of-rooftop-solar/article36101610.ece",blurb:"Tamil Nadu was an early mover in the renewables energy space, leading the race with industrialised peers such as Karnataka, Gujarat and Maharashtra. However, in the last few years, the state has begun to pull in the reins on its early enthusiasm and has dropped rankings in the leaderboard of annual capacity addition in renewables. Here’s why."}, // CHECK date
+{id:"mint-private-ports",client:"LIVEMINT.COM",title:"The silent rise of India’s private ports",date:"2021-04-11",url:"https://www.livemint.com/news/india/the-silent-rise-of-india-s-private-ports-11618153700290.html",blurb:"An Indian port takes about 84 hours to move export/import cargo, against the global hub average of 7 hours. In that difference of 77 hours lies opportunity. And private players — led by the Adani group — have begun to diligently chase it."},
+{id:"mint-infra-deal",client:"LIVEMINT.COM",title:"Battered infra dream awaits a new deal",date:"2021-01-27",url:"https://www.livemint.com/news/india/battered-infra-dream-awaits-a-new-deal-11611759157435.html",blurb:"A long-awaited ramp up in infrastructure spending was derailed by the pandemic. Now, all eyes are on the Budget. But the near collapse in public funding could have worrisome consequences."},
+{id:"mint-fixing-ibc",client:"LIVEMINT.COM",title:"Fixing the IBC",date:"2020-12-27",url:"https://www.livemint.com/news/india/urgency-to-fix-india-s-bankruptcy-code-11609086524773.html",blurb:"The first flushes of optimism after the new bankruptcy law was introduced are now gone. For the vast majority of Indian businesses that head to bankruptcy, the IBC is a ponderous judicial process; petitions continue to pile up at the bankruptcy benches spread across the country."},
+{id:"mint-wind-solar",client:"LIVEMINT.COM",title:"The great games at play in wind and solar",date:"2020-07-14",url:"https://www.livemint.com/industry/energy/the-great-games-at-play-in-wind-and-solar-11594735981374.html",blurb:"With long-term renewables contracts being seen as safe bets, especially during a pandemic, foreign capital that has few places to go to has begun chasing these assets."},
+{id:"mint-setting-sun",client:"LIVEMINT.COM",title:"The setting sun on India’s solar dreams",date:"2019-11-24",url:"https://www.livemint.com/industry/energy/the-setting-sun-on-india-s-solar-dreams-11574612085929.html",blurb:"The ongoing slowdown in economic growth and electricity demand has worsened the deep stress in India’s renewable energy industry, sending it into a tailspin. (Supported by a grant from the Smitu Kothari Fellowship, 2019.)"},
+{id:"mint-bankruptcy-redefined",client:"LIVEMINT.COM",title:"How bankruptcy got redefined in India",date:"2019-12-22",url:"https://www.livemint.com/companies/news/how-bankruptcy-got-redefined-in-india-11577025972861.html",blurb:"Bankruptcy in India has always been a mess and lenders have long known they can do little more than kiss their money goodbye. It’s still early days, but the IBC might just change that."},
+{id:"mint-liberty-house",client:"LIVEMINT.COM",title:"Is Liberty House’s Sanjeev Gupta facing a crisis of credibility?",date:"2018",url:"https://www.livemint.com/Companies/r3eFnaa0jrkKxtKD0p2gHI/Is-Liberty-Houses-Sanjeev-Gupta-facing-a-crisis-of-credibil.html",blurb:"Despite making audacious bids for stressed steel plants, Liberty House’s Sanjeev Gupta is still seen as an unknown commodity in India. Why are lenders here reluctant to trust him?"}, // CHECK date
+{id:"mint-steel-battle",client:"LIVEMINT.COM",title:"The great battle for Indian steel",date:"2018",url:"https://www.livemint.com/Industry/uAOHRqWWBD1h6bD567xTFI/The-great-battle-for-Indian-steel.html",blurb:"A fourth of India’s steel production capacity is up for grabs. Which steel magnate will come on top and why does it matter?"}, // CHECK date
+{id:"hindu-skills-india",client:"THE HINDU",title:"Is ‘Skills India’ losing steam?",date:"2017",url:"https://www.thehindubusinessline.com/specials/india-file/is-skills-india-losing-steam/article22312407.ece",blurb:"Centrally-appointed NGOs helping the rural young gain vocational skills are having a terrible time working with the government. Funds are rarely transferred and jobs aren’t created."}, // CHECK date
+{id:"hindu-bananas",client:"THE HINDU",title:"We’re running out of bananas. Yes, seriously",date:"2017",url:"https://www.thehindubusinessline.com/opinion/were-running-out-of-bananas-yes-seriously/article21306147.ece",blurb:"Is someone eating them all up? A fungus, actually, with a rather benign name. But the Tropical Race 4 will soon wipe out the world’s favourite fruit."}, // CHECK date
+{id:"hindu-end-of-taxes",client:"THE HINDU",title:"The end of taxes (Or is it?) | Business Line",date:"2014",url:"http://www.thehindubusinessline.com/opinion/the-end-of-taxes-or-is-it/article5606385.ece",blurb:"If only, if only - The Cheat Sheet."}, // CHECK date
+{id:"hindu-halal-street",client:"THE HINDU",title:"Halal Street | Business Line",date:"2013",url:"https://www.thehindubusinessline.com/news/variety/halal-street/article23028825.ece",blurb:"Will Islamic Finance grow in India? Reasons of faith have led some Muslims to limit their involvement with the banking sector, either to save money or to borrow it. Some organisations are now helping them, as well as non-Muslims, through sharia-compliant finance."}, // CHECK date
+{id:"hindu-mobile-dream",client:"THE HINDU",title:"Assembling Make in India’s mobile dream | Business Line",date:"2016",url:"https://www.thehindubusinessline.com/specials/india-file/assembling-make-in-indias-mobile-dream/article9315838.ece",blurb:"Are Indian mobile phone companies really making Indian phones? Not really."}, // CHECK date
+{id:"hindu-governor",client:"THE HINDU",title:"A Governor we could ‘get’",date:"2016",url:"http://www.thehindubusinessline.com/money-and-banking/aam-aadmi-governor-with-a-rock-star-status/article8748861.ece",blurb:"He made macroeconomics accessible even to the uninitiated…"}, // CHECK date
+{id:"hindu-visually",client:"THE HINDU",title:"Visually",date:"2016",url:"http://www.thehindubusinessline.com/news/visually/article8452327.ece",blurb:"India’s growing social and demographic divide - in charts."} // CHECK date
+];
+/* ================================================== */
+
+const MONTHS=["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+function fmt(d){const [y,m,day]=d.split("-");return m?(day?Number(day)+" ":"")+MONTHS[Number(m)-1]+" "+y:y}
+function esc(s){const d=document.createElement("div");d.textContent=s;return d.innerHTML}
+
+const colsEl=document.getElementById("cols"), count=document.getElementById("count");
+let active="All", timer;
+
+function card(p){
+  const a=document.createElement("a");
+  a.className="card"; a.href=p.url; a.target="_blank"; a.rel="noopener";
+  a.innerHTML=`<div class="thumb"><img src="images/${esc(p.id)}.jpg" alt="" loading="lazy"></div>
+    <div class="in"><span class="view">View ↗</span><p class="client">${esc(p.client)}</p>
+    <h2>${esc(p.title)}</h2><p class="blurb">${esc(p.blurb)}</p><p class="date">${esc(fmt(p.date))}</p></div>`;
+  a.querySelector("img").addEventListener("error",e=>{e.target.parentNode.remove();relayout()});
+  return a;
+}
+
+function layout(){
+  colsEl.className=view==="grid"?"grid":"cols";
+  if(view==="grid"){colsEl.replaceChildren(...list);return}
+  const w=colsEl.clientWidth, n=w>=860?3:w>=540?2:1;
+  const cols=Array.from({length:n},()=>{const c=document.createElement("div");c.className="col";return c});
+  colsEl.replaceChildren(...cols);
+  list.forEach(c=>{cols.reduce((s,x)=>x.offsetHeight<s.offsetHeight?x:s).appendChild(c)});
+}
+function relayout(){clearTimeout(timer);timer=setTimeout(layout,60)}
+
+let list=[], view="grid";
+function render(){
+  const shown=pieces.filter(p=>active==="All"||p.client===active)
+    .sort((a,b)=>(a.pin||99)-(b.pin||99)||b.date.localeCompare(a.date));
+  list=shown.map(card);
+  count.textContent=shown.length+" projects";
+  layout();
+}
+
+const views=document.getElementById("views");
+[["grid","Grid"],["columns","Columns"]].forEach(([v,label])=>{
+  const b=document.createElement("button");
+  b.textContent=label; b.dataset.v=v;
+  b.addEventListener("click",()=>{view=v;views.querySelectorAll("button").forEach(x=>x.setAttribute("aria-pressed",String(x.dataset.v===view)));layout()});
+  views.appendChild(b);
+});
+views.firstChild.setAttribute("aria-pressed","true");
+window.addEventListener("resize",relayout);
+window.addEventListener("load",relayout);
+render();
+</script>
+</body>
+</html>
