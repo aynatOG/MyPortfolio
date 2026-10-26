@@ -7,10 +7,10 @@
 <meta name="description" content="Research reports, journalism and multimedia features on sustainability, clean energy, infrastructure and corporate finance.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,700&family=Literata:opsz,wght@7..72,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
 :root{--bg:#f4f6f8;--card:#fff;--ink:#16202b;--muted:#5d6b7a;--rule:#d9e0e7;--accent:#0f766e;--ph:#e3e9ee;
---head:"Bricolage Grotesque","Helvetica Neue",Arial,sans-serif;--body:"Literata",Georgia,serif}
+--head:"Inter","Helvetica Neue",Arial,sans-serif;--body:"Inter","Helvetica Neue",Arial,sans-serif}
 @media (prefers-color-scheme:dark){:root{--bg:#0f161d;--card:#18222c;--ink:#e8eef4;--muted:#9fb0c0;--rule:#2a3846;--accent:#5eead4;--ph:#223140}}
 *{box-sizing:border-box}
 body{margin:0;background:var(--bg);color:var(--ink);font:400 1rem/1.6 var(--head)}
@@ -20,7 +20,6 @@ a:focus-visible,button:focus-visible{outline:3px solid var(--accent);outline-off
 header{display:flex;gap:2rem;align-items:center;padding-bottom:2rem;border-bottom:1px solid var(--rule)}
 .avatar{width:150px;height:150px;border-radius:50%;object-fit:cover;flex:none;background:var(--ph)}
 h1{font:700 clamp(2.3rem,5vw,3.4rem)/1 var(--head);letter-spacing:-.03em;margin:0 0 .5rem}
-.loc{margin:0 0 .25rem;color:var(--muted)}
 .role{font-weight:500;margin:.75rem 0 .25rem;color:var(--accent)}
 .bio{margin:0;max-width:60ch}
 .links{display:flex;gap:1.25rem;margin:.75rem 0 0;padding:0;list-style:none;font-weight:500}
@@ -54,9 +53,8 @@ h1{font:700 clamp(2.3rem,5vw,3.4rem)/1 var(--head);letter-spacing:-.03em;margin:
     <img class="avatar" src="images/profile.jpg" alt="Tanya Thomas">
     <div>
       <h1>Tanya Thomas</h1>
-      <p class="loc">India</p>
       <p class="role">Researcher | Writer | Podcast Producer</p>
-      <p class="bio">Here's a quick summary of at research reports I've contributed to, multimedia communication products I've produced, and some long-form reportage from my journalism career. My favourite subjects include clean energy, public policy, and economic inclusion.</p>
+      <p class="bio">Here's a quick summary of research reports I've contributed to, multimedia communication products I've produced, and some long-form reportage from my journalism career. My favourite subjects include clean energy, public policy, and economic inclusion.</p>
       <ul class="links">
         <li><a href="https://www.linkedin.com/in/tanya-thomas-62773192/">LinkedIn</a></li>
         <li><a href="https://twitter.com/tanyakondody">Twitter</a></li>
@@ -72,12 +70,13 @@ h1{font:700 clamp(2.3rem,5vw,3.4rem)/1 var(--head);letter-spacing:-.03em;margin:
    id:     short name with no spaces. The picture is images/<id>.jpg.
    pic:    true shows a picture on the card (a tall card); false makes a short text-only card.
    ratio:  optional picture shape, e.g. "3/4" for tall covers. Default is "4/3".
-   date:   "2024-05-13", "2024-05" or "2024". Newest first, except pieces with a pin.
-   pin:    optional. pin:1 shows first, pin:2 second. Lines marked CHECK have an estimated date.
+   date:   "2024-05-13", "2024-05" or "2024". Only the year is shown; the full date keeps the order right. Newest first, except pieces with a pin.
+   pin:    optional. pin:1 shows first, pin:2 second, pin:3 third. Lines marked CHECK have an estimated date.
    ================================================== */
 const pieces = [
 {id:"ifc-banking",pic:true,ratio:"3/4",pin:1,client:"IFC.ORG",title:"Women’s Advancement in Banking in Emerging South Asian Countries",date:"2024-05-08",url:"https://www.ifc.org/en/insights-reports/2024/women-s-advancement-in-banking-in-emerging-south-asian-countries",blurb:"Globally, commercial banks with more women in leadership roles report better risk management practices and higher profits than banks that don’t. Yet, the opportunities for career progression are heavily skewed against women in these institutions. I edited this data-driven study by IFC on the challenges women face in progressing to leadership roles at 20 banks in Bangladesh, Nepal, and Sri Lanka."},
 {id:"cenfa-energy-finance",pic:true,pin:2,client:"CENFA.ORG",title:"The State of Energy Finance in India",date:"2021",url:"https://cenfa.org/the-state-of-energy-finance-in-india/",blurb:"My 2021 whitepaper for the Centre for Financial Accountability (a New Delhi-based think tank) is a critical study looking at India’s energy systems and issues surrounding it today. Based on facts and current trends, it offers not only the way ahead but also seeks answers to uncomfortable questions not being asked around the sudden renewables growth."},
+{id:"youtube-feature",pic:true,ratio:"16/9",pin:3,client:"IFC.ORG",title:"10 Years of Impact: IFC’s Women’s Insurance Project",date:"2025",url:"https://www.youtube.com/watch?v=OKuQEg1xGSM",blurb:"IFC’s gender-smart insurance solutions are creating value for women, businesses, and economies around the world by helping companies better serve women and build more inclusive insurance ecosystems. This video celebrates the program’s 10-year anniversary."},
 {id:"ifc-network-effects",pic:false,client:"IFC.ORG",title:"The Network Effects of Women in Green Infrastructure",date:"2024-05-13",url:"https://www.ifc.org/en/podcasts/green-and-equal-south-asia/network-effects-of-women-in-green-infrastructure",blurb:"In the Maldives, an archipelago of over 1000 islands, the ocean is part of the everyday landscape and at the heart of everything you do. In this episode, we chat with senior team members of Dhiraagu, the country’s leading telecom company, who are ensuring that women are a valuable part of the work they do in spreading network connectivity across this island nation."},
 {id:"ifc-ev-mobility",pic:true,client:"IFC.ORG",title:"How Women Drive Change in Indian Electric Mobility",date:"2024",url:"https://www.ifc.org/en/podcasts/green-and-equal-south-asia/how-women-drive-change-in-indian-electric-mobility",blurb:"This is the Green and Equal South Asia Podcast powered by ACSIIS, a partnership between the European Union and the International Finance Corporation."}, // CHECK date
 {id:"carboncopy-ev-race",pic:false,client:"CARBONCOPY.INFO",title:"EV race: The battle for dominance looks set to intensify as start-ups sniff new territory",date:"2022",url:"https://carboncopy.info/ev-race-the-battle-for-dominance-looks-set-to-intensify-as-start-ups-sniff-new-territory/",blurb:"After successfully shaking up the two-wheeler market and catching established brands by surprise, new entrants in the automobile space are keen to pull off a repeat in four-wheelers. In August last year, two mobility start-ups announced within a week of each other that they plan to manufacture and on-road their debut electric car models within the next couple of years."}, // CHECK date
@@ -105,8 +104,7 @@ const pieces = [
 ];
 /* ================================================== */
 
-const MONTHS=["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
-function fmt(d){const [y,m,day]=d.split("-");return m?(day?Number(day)+" ":"")+MONTHS[Number(m)-1]+" "+y:y}
+function fmt(d){return d.slice(0,4)}
 function esc(s){const d=document.createElement("div");d.textContent=s;return d.innerHTML}
 
 const colsEl=document.getElementById("cols"), count=document.getElementById("count");
@@ -117,7 +115,7 @@ function card(p){
   a.className="card"; a.href=p.url; a.target="_blank"; a.rel="noopener";
   const pic=p.pic?`<div class="thumb" style="aspect-ratio:${p.ratio||"4/3"}"><img src="images/${esc(p.id)}.jpg" alt="" loading="lazy"></div>`:"";
   a.innerHTML=pic+`<div class="in"><span class="view">View ↗</span><p class="client">${esc(p.client)}</p>
-    <h2>${esc(p.title)}</h2><p class="blurb">${esc(p.blurb)}</p><p class="date">${esc(fmt(p.date))}</p></div>`;
+    <h2>${esc(p.title)}</h2>${p.blurb?`<p class="blurb">${esc(p.blurb)}</p>`:""}${p.date?`<p class="date">${esc(fmt(p.date))}</p>`:""}</div>`;
   const img=a.querySelector("img");
   if(img)img.addEventListener("error",()=>{img.parentNode.innerHTML='<div class="ph">'+esc(p.client)+'</div>'});
   return a;
